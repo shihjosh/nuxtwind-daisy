@@ -1,15 +1,13 @@
 <template>
   <div :data-theme="theme">
-    <div class="navbar fixed bg-base-100 z-40 shadow-sm">
-      <div class="navbar-start">
-        <!-- <a class="btn btn-ghost md:text-xl">Josh Where</a> -->
-        <NuxtLink to="/" class="btn btn-ghost md:text-xl">Josh Where</NuxtLink>
-      </div>
-      <div class="navbar-center hidden lg:flex">
-        <!-- TODO: You can add menu here -->
-        <ul class="menu menu-horizontal px-1">
-          <li><NuxtLink to="/">Home</NuxtLink></li>
-          <li>
+    <div class="navbar bg-base-100">
+  <div class="flex-1">
+    <a class="btn btn-ghost normal-case text-xl">Blog</a>
+  </div>
+  <div class="flex-none">
+    <ul class="menu menu-horizontal px-1">
+      <!-- <li><NuxtLink to="/">Home</NuxtLink></li> -->
+      <li>
             <details>
               <summary>Posts</summary>
               <ul class="p-2 bg-base-100">
@@ -19,12 +17,12 @@
               </ul>
             </details>
           </li>
-        </ul>
-      </div>
-      <div class="navbar-end">
+    </ul>
+  </div>
+  <div class="navba-end">
         <select
           v-model="theme"
-          class="select select-primary md:w-full md:max-w-xs"
+          class="select select-primary md:w-auto"
         >
           <option disabled selected>Select Theme</option>
           <option v-for="theme in themes" :value="theme" :key="theme">
@@ -32,7 +30,7 @@
           </option>
         </select>
       </div>
-    </div>
+</div>
     <slot />
     <footer class="footer footer-center p-10 bg-base-50">
       <div>

@@ -31,7 +31,7 @@
       </div>
     </div>
   </div>
-  <div class="grid grid-cols-3 gap-3 mt-6 ml-3">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-6 ml-3">
 
   
     <div v-for="post in posts" :key="post.id"  data-aos="fade-up" class="card w-96 bg-base-100 shadow-xl image-full">
@@ -58,7 +58,7 @@ export default {
         { id: 1, title: "第一篇文章",content:"content 第一篇文章",image:"https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" },
         { id: 2, title: "第二篇文章",content:"content 第二篇文章",image:"https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" },
         { id: 3, title: "第三篇文章",content:"content 第三篇文章",image:"https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" },
-        { id: 3, title: "第四篇文章",content:"content 第四篇文章",image:"https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" },
+        { id: 4, title: "第四篇文章",content:"content 第四篇文章",image:"https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" },
       ],
     };
   },
