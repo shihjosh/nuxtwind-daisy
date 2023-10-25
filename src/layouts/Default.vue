@@ -2,7 +2,7 @@
   <div :data-theme="theme">
     <div class="navbar bg-base-100">
   <div class="flex-1">
-    <a class="btn btn-ghost normal-case text-xl">Blog</a>
+    <NuxtLink to="/" class="btn btn-ghost md:text-xl">Blog</NuxtLink>
   </div>
   <div class="flex-none">
     <ul class="menu menu-horizontal px-1">
