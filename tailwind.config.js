@@ -10,6 +10,9 @@ module.exports = {
         primary: ['Inter'],
       },
     },
+    container: {
+      center: true,
+    },
   },
   daisyui: {
     // base: false,
