@@ -64,11 +64,7 @@ export default defineNuxtConfig({
       config.resolve.symlinks = false;
     },
   },
-  buildDir: 'dist',
-  static: {
-    prefix: false
-  },
-
+ 
   image: {
     dir: 'assets/images',
     screens: {
