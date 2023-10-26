@@ -1,5 +1,5 @@
 <template>
-  <div class="hero min-h-screen bg-base-200" style="background-image: url('/public/images/a01.jpg')">
+  <div class="hero min-h-screen bg-base-200" style="background-image: url('~/assets/images/a01.jpg')">
     <div class="hero-content text-center" >
       <div class="max-w-xl">
         <h1 data-aos="fade-down" class="text-4xl text-zinc-900 md:text-7xl text-zinc-900 font-bold mb-6">
