@@ -16,7 +16,9 @@ export default defineNuxtConfig({
   gtag: {
     id: 'G-M1KERXTK1H', // TODO: Add your google analytics 4 tag here
   },
-
+  alias:{
+    assets:"/<rootDir>/assets",
+  },
 
   srcDir: './src',
 
