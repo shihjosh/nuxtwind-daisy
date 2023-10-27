@@ -10,6 +10,9 @@ Nuxtwind Daisy is a starter template for Nuxt.js 3 + Tailwind CSS + Daisy UI wit
 - [Showcase](#showcase)
 - [Getting Started Guide](#getting-started-guide)
 
+# 問題
+ - Nuxtjs3 靜態圖片 有問題 我將嘗試 把public 目錄同步 assets 資料與路徑
+   這樣開發能看到圖片， generate 時也抓地到圖片。
 # Showcase
 
 Brag your modified version from this template. 💪

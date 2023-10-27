@@ -1,17 +1,23 @@
 <template>
   <article class="card mb-7 mt-1">
-    <h3 class="text-xl mb-2"><NuxtLink to="/posts/4545">Post Title</NuxtLink></h3>
-    <p class="text=sm">Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex., "it's allin chapters 12--14"). Three dots ... will be converted to an ellipsis.
-Unicode is supported. ☺</p>
-    <span class="block text-sm mt-2 mb-2">Created by:Josh</span>
-    <itme class="block text-sm text-blue-500"><span class="fas fa-clock"></span>2023-10-01</itme>
-    <NuxtLink to="#">Read more</NuxtLink>
+    <h3 class="text-xl mb-2"><nuxt-link :to="'/posts/' + post.id">{{ post.title }}</nuxt-link></h3>
+    <p class="text=sm">{{ post.content.substring(0,50) }}</p>
+    <span class="block text-sm mt-2 mb-2">Created by: {{ post.author }}</span>
+    <itme class="block text-sm text-blue-500"><span class="fas fa-clock"></span>{{ post.created_at }}</itme>
+    <NuxtLink  :to="'/posts/' + post.id">Read more</NuxtLink>
   </article>
 </template>
 
 <script>
-export default {
+const props = {
+  post: {
+    type: Object,
+    required: true
+  }
+}
 
+export default {
+  props,
 }
 </script>
 
