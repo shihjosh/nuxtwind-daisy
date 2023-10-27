@@ -6,7 +6,7 @@
   </div>
   <div class="flex-none">
     <ul class="menu menu-horizontal px-1">
-      <!-- <li><NuxtLink to="/">Home</NuxtLink></li> -->
+      <li><NuxtLink to="/posts">Post</NuxtLink></li>
       <li>
             <details>
               <summary>Posts</summary>
