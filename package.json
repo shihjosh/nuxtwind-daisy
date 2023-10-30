@@ -11,6 +11,7 @@
     "rename-server": "node scripts/rename-server.js",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
+    "copy-image": "cp -R src/assets/images/* src/public/assets/images",
     "serve": "firebase emulators:start",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
@@ -21,6 +22,7 @@
     "@nuxtjs/tailwindcss": "^6.8.0",
     "@tailwindcss/container-queries": "^0.1.0",
     "@tailwindcss/forms": "^0.5.3",
+    "@types/markdown-it": "^13.0.5",
     "eslint": "^8.29.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.19.1",
@@ -28,6 +30,7 @@
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-vue": "^9.0.0",
     "eslint-webpack-plugin": "^3.1.1",
+    "markdown-it": "^13.0.2",
     "nuxt": "^3.6.1",
     "nuxt-gtag": "^0.5.7",
     "nuxt-headlessui": "^1.1.1",

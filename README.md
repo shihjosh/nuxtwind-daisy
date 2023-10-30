@@ -13,6 +13,9 @@ Nuxtwind Daisy is a starter template for Nuxt.js 3 + Tailwind CSS + Daisy UI wit
 # 問題
  - Nuxtjs3 靜態圖片 有問題 我將嘗試 把public 目錄同步 assets 資料與路徑
    這樣開發能看到圖片， generate 時也抓地到圖片。
+
+ - 透過 strapi 取的 markdwon 取得文章資料 顯示在前台網頁
+   解噘方法:https://github.com/nuxt-community/markdownit-module/issues/47#issuecomment-1345268133
 # Showcase
 
 Brag your modified version from this template. 💪

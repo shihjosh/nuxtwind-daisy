@@ -13,6 +13,7 @@ export default defineNuxtConfig({
     'nuxt-headlessui',
     'nuxt-gtag',
   ],
+
   gtag: {
     id: 'G-M1KERXTK1H', // TODO: Add your google analytics 4 tag here
   },
