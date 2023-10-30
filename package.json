@@ -9,7 +9,7 @@
     "lint": "eslint --ext .js,.vue ./ --fix",
     "build": "nuxt build",
     "rename-server": "node scripts/rename-server.js",
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --host 0.0.0.0",
     "generate": "nuxt generate",
     "copy-image": "cp -R src/assets/images/* src/public/assets/images",
     "serve": "firebase emulators:start",

@@ -16,76 +16,74 @@ Nuxtwind Daisy is a starter template for Nuxt.js 3 + Tailwind CSS + Daisy UI wit
 
  - 透過 strapi 取的 markdwon 取得文章資料 顯示在前台網頁
    解噘方法:https://github.com/nuxt-community/markdownit-module/issues/47#issuecomment-1345268133
-# Showcase
 
-Brag your modified version from this template. 💪
+# API Install strapi to docker
+### 環境:
+ - Nodejs V16
+ - Strapi
+ 
+##### create strapi-app
+ 
+```sh
+npx create-strapi-app@v4.3.8 app
+```
+##### ADD Dockerfile
+ 
+```yaml
+FROM node:16
 
-- [jofftiquez.dev](https://jofftiquez.dev) 
-https://www.youtube.com/watch?v=hErDdNFgbkA&list=PLRKk5RpSyRSVFpUfYSCBXd0uwFQAB7Rbo&index=16
+# Installing libvips-dev for sharp Compatibility
 
-# Getting Started Guide
+RUN apt-get update && apt-get install libvips-dev -y
 
-## Installation
+ARG NODE_ENV=development
 
-Nope. No installation needed.
+ENV NODE_ENV=${NODE_ENV}
 
-## Fork
+WORKDIR /opt/
 
-Fork this repository to your own GitHub account.
+COPY ./package.json ./package-lock.json ./
 
-<img width="800" src="fork.png">
+ENV PATH /opt/node_modules/.bin:$PATH
 
-Make it yours. Rename it. Change the description. Hit Create fork.
+RUN npm install
 
-<img width="800" src="make-it-yours.png">
+WORKDIR /opt/app
 
-## Make changes
+COPY ./ .
 
-I will assume that you already know the basic of nuxt.js. If not, you can check out their [documentation](https://nuxt.com/docs/getting-started/introduction).
+RUN npm run build
 
-Now that it's yours, you can make changes to it. Be creative you can start by removing the contents in the `pages/index.vue`. Feel free to utilize the `GenericPanel.vue` component as it adds a nice balance to the layout.
+EXPOSE 1337
 
-## Preview
+CMD ["npm", "run", "develop"]
+```
+ 
+##### Build Image
 
-You can preview your build by running the `nuxt start` command.
-
-```bash
-# Preview your build
-$ nuxt start
+```sh
+docker build -t mystrapi:v01 .
 ```
 
-## Build
+#### docker-compose test
 
-You can choose to build it using the defaul strategy which is SSR, but you also have the option to generate static files so you can just upload your work in any static hosting service. The sample site of this repo is hosted in Vercel.
+```yaml
 
+version: '3'
+services:
+  strapi:
+    image: mystrapi:v01
+    environment:
+      DATABASE_CLIENT: mysql
+      DATABASE_HOST: 192.168.50.114
+      DATABASE_PORT: 3306
+      DATABASE_NAME: strapi
+      DATABASE_USERNAME: root
+      DATABASE_PASSWORD: root
+      DATABASE_SSL: 'false'
+    ports:
+      - '1339:1337'
 
-```bash
-# Build for production using SSR
-$ nuxt build
 ```
 
-```bash
-# Build for production and generate static files
-$ nuxt generate
-```
 
-## Deploy
-
-You can deploy your work in any static hosting service.
-
-Here's a list of static hosting services that you can use:
-
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
-- [Firebase](https://firebase.google.com/)
-- [Surge](https://surge.sh/)
-- [Render](https://render.com/)
-- [GitHub Pages](https://pages.github.com/)
-- [GitLab Pages](https://docs.gitlab.com/ee/user/project/pages/)
-- [AWS Amplify](https://aws.amazon.com/amplify/)
-- [Cloudflare Pages](https://pages.cloudflare.com/)
-- [Begin](https://begin.com/)
-- [Fast.io](https://fast.io/)
-- [Fly](https://fly.io/)
-- [Deta](https://www.deta.sh/)
-- [Aerobatic](https://www.aerobatic.com/)
