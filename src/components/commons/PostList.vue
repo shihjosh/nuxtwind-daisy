@@ -1,9 +1,9 @@
 <template>
   <article class="card mb-7 mt-1">
-    <h3 class="text-xl mb-2"><nuxt-link :to="'/posts/' + post.id">{{ post.title }}</nuxt-link></h3>
-    <p class="text=sm">{{ post.content.substring(0,50) }}</p>
-    <span class="block text-sm mt-2 mb-2">Created by: {{ post.author }}</span>
-    <itme class="block text-sm text-blue-500"><span class="fas fa-clock"></span>{{ post.created_at }}</itme>
+    <h3 class="text-xl mb-2"><nuxt-link :to="'/posts/' + post.id">{{ post.attributes.title }}</nuxt-link></h3>
+    <p class="text=sm">{{ post.attributes.body.substring(0,200) }}</p>
+    <span class="block text-sm mt-2 mb-2">Created by: author</span>
+    <itme class="block text-sm text-blue-500"><span class="fas fa-clock"></span>{{ post.attributes.publishedAt }}</itme>
     <NuxtLink  :to="'/posts/' + post.id">Read more</NuxtLink>
   </article>
 </template>

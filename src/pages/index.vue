@@ -34,13 +34,13 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-6 ml-3">
 
   
-    <div v-for="post in posts" :key="post.id"  data-aos="fade-up" class="card w-96 bg-base-100 shadow-xl image-full">
+    <div v-for="post in reviews " :key="post.id"  data-aos="fade-up" class="card w-96 bg-base-100 shadow-xl image-full">
         <figure>
-          <img :src="post.image" :alt="post.title" />
+          <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" :alt="post.attributes.title" />
         </figure>
         <div class="card-body">
-          <h2 class="card-title">{{ post.title }}</h2>
-          <p>{{ post.content }}</p>
+          <h2 class="card-title">{{ post.attributes.title }}</h2>
+          <p>{{ post.attributes.body.substring(0, 100) }}</p>
           <div class="card-actions justify-end">
             <button class="btn btn-primary">GO!</button>
           </div>
@@ -59,9 +59,22 @@ export default {
         { id: 2, title: "第二篇文章",content:"content 第二篇文章",image:"https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" },
         { id: 3, title: "第三篇文章",content:"content 第三篇文章",image:"https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" },
         { id: 4, title: "第四篇文章",content:"content 第四篇文章",image:"https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" },
-        { id: 5, title: "第四篇文章",content:"content 第四篇文章",image:"https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" },
       ],
+      reviews:'',
     };
+  }, 
+  mounted() {
+    // // mounted 時，先取得一次資料
+    this.checkPosts()
+  },
+  methods: {
+   async checkPosts() {
+
+    const config = useRuntimeConfig()
+    // console.log("baseurl:",config.public.apiBase)
+    const postData = await $fetch(config.public.apiBase+'reviews')
+    this.reviews = postData.data
+  },
   },
 };
 </script>

@@ -1,28 +1,25 @@
 <template>
   <generic-panel>
-    <!-- <article class="card mb-7 mt-1">
-      <h1 class="text-3xl mb-2 text-center">{{ post.title }}</h1>
-      <p>{{ post.content }}</p>
-      <span class="block text-sm mt-2 mb-2">Created by:{{ post.author }}</span>
-      <itme class="block text-sm text-blue-500"
-        ><span class="fas fa-clock"></span>{{ post.created_at }}</itme
-      >
-    </article> -->
-    <!-- <section
-    class="prose prose-gray text-sm"
-    v-html="$mdRenderer.render(post.content)"
-  /> -->
     <div class="container mx-auto grid place-content-center">
+      <div v-if="review && review.attributes && review.attributes.body">
+        <!-- <h1>{{ review.attributes.title }}</h1> -->
       <div
         class="prose-xl border border-gray-300 prose-blue text-black prose-pre:bg-zinc-300 prose-pre:text-gray-800 text-sm m-5 p-5 bg-gray-100 shadow-xl rounded-2xl"
-        v-html="$mdRenderer.render(post.content)"
+        v-html="$mdRenderer.render(review.attributes.body)"
       />
     </div>
+  </div>
   </generic-panel>
 </template>
 
 <script>
 import GenericPanel from "~/components/commons/GenericPanel";
+
+// const config = useRuntimeConfig()
+// console.log('Runtime config:', config)
+// if (process.server) {
+//   console.log('API secret:', config.public.apiBase)
+// }
 
 // 這裡要取得 ID 然後查詢資料
 export default {
@@ -40,7 +37,26 @@ export default {
         author: "第一篇文章內容",
         created_at: "2023-10-15",
       },
+      review:'',
     };
+  }, 
+  mounted() {
+    // mounted 時，先取得一次資料
+    this.checkPosts()
+  },
+  methods: {
+   async checkPosts() {
+    //根據取得的資料id 顯示
+    const route = useRoute()
+    const config = useRuntimeConfig()
+    const id = route.params.id
+    // console.log('route.params.id:',route.params.id)
+    // console.log("baseurl:",config.public.apiBase)
+
+    const postData = await $fetch(config.public.apiBase+'reviews/'+id)
+    this.review = postData.data
+  
+  },
   },
 };
 </script>

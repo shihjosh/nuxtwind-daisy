@@ -2,12 +2,13 @@
 // const TYPE = 'website';
 // const URL = 'https://hippocrades.com';
 // const SITE_NAME = 'hippocrades.com';
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
 // eslint-disable-next-line no-undef
 export default defineNuxtConfig({
   preset: 'node-server',
-
+  // publicRuntimeConfig: {
+  //   apiURL: 'http://192.168.50.114:1339/api/'
+  // },
   modules: [
     '@nuxtjs/tailwindcss',
     'nuxt-headlessui',
@@ -21,7 +22,8 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      yourEnv: process.env.YOUR_ENV,
+      // yourEnv: process.env.YOUR_ENV,
+      apiBase: 'http://192.168.50.114:1339/api/',
     },
   },
 

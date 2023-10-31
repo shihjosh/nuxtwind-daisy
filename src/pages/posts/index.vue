@@ -4,7 +4,7 @@
     <h1 class="text-3xl mb-4">Latest Posts</h1>
 
     <section>
-      <PostList v-for="post in posts" :key="post.id" :post="post" />
+      <PostList v-for="post in reviews" :key="post.id" :post="post" />
     </section>
   </div>
 </generic-panel>
@@ -38,7 +38,20 @@ export default {
           created_at: "2023-10-01",
         },
       ],
+      reviews:'',
     };
+  }, 
+  mounted() {
+    // // mounted 時，先取得一次資料
+    this.checkPosts()
+  },
+  methods: {
+   async checkPosts() {
+    const config = useRuntimeConfig()
+    // console.log("baseurl:",config.public.apiBase)
+    const postData = await $fetch(config.public.apiBase+'reviews')
+    this.reviews = postData.data
+  },
   },
 };
 </script>
