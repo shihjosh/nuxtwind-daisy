@@ -2,7 +2,7 @@
   <generic-panel>
     <div class="container mx-auto grid place-content-center">
       <div v-if="review && review.attributes && review.attributes.body">
-        <!-- <h1>{{ review.attributes.title }}</h1> -->
+        <h1 class ="text-center text-4xl  md:text-5xl">{{ review.attributes.title }}</h1>
       <div
         class="prose-xl border border-gray-300 prose-blue text-black prose-pre:bg-zinc-300 prose-pre:text-gray-800 text-sm m-5 p-5 bg-gray-100 shadow-xl rounded-2xl"
         v-html="$mdRenderer.render(review.attributes.body)"
@@ -14,12 +14,6 @@
 
 <script>
 import GenericPanel from "~/components/commons/GenericPanel";
-
-// const config = useRuntimeConfig()
-// console.log('Runtime config:', config)
-// if (process.server) {
-//   console.log('API secret:', config.public.apiBase)
-// }
 
 // 這裡要取得 ID 然後查詢資料
 export default {
