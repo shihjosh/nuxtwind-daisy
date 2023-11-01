@@ -16,11 +16,13 @@ Nuxtwind Daisy is a starter template for Nuxt.js 3 + Tailwind CSS + Daisy UI wit
 
  - 透過 strapi 取的 markdwon 取得文章資料 顯示在前台網頁
    解噘方法:https://github.com/nuxt-community/markdownit-module/issues/47#issuecomment-1345268133
+   
 
 # API Install strapi to docker
 ### 環境:
  - Nodejs V16
  - Strapi
+ - github: https://github.com/shihjosh/strapi_docker
  
 ##### create strapi-app
  
