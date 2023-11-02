@@ -23,7 +23,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       // yourEnv: process.env.YOUR_ENV,
-      apiBase: 'http://192.168.50.114:1339/api/',
+      apiBase: 'https://strapi.black-wu.life/api/',
     },
   },
 
