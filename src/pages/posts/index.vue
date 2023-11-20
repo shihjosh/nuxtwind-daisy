@@ -6,6 +6,9 @@
     <section>
       <PostList v-for="post in reviews" :key="post.id" :post="post" />
     </section>
+    <!-- <section>
+      <Pagination :jsonData="meta"/>
+    </section> -->
   </div>
 </generic-panel>
 </template>
@@ -13,10 +16,13 @@
 <script>
 import GenericPanel from "~/components/commons/GenericPanel";
 import PostList from "~/components/commons/PostList";
+import Pagination from "~/components/commons/Pagination";
+
 export default {
   components: {
     GenericPanel,
     PostList,
+    Pagination,
   },
   data() {
     return {
@@ -39,6 +45,7 @@ export default {
         },
       ],
       reviews:'',
+      jsonData:'',
     };
   }, 
   mounted() {
@@ -49,8 +56,11 @@ export default {
    async checkPosts() {
     const config = useRuntimeConfig()
     // console.log("baseurl:",config.public.apiBase)
+    // const postData = await $fetch(config.public.apiBase+'reviews?pagination[page]=2&pagination[pageSize]=2')
     const postData = await $fetch(config.public.apiBase+'reviews')
     this.reviews = postData.data
+    this.jsonData = postData.meta
+    console.log('this.meta:',this.meta)
   },
   },
 };

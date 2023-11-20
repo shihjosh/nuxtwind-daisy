@@ -7,6 +7,7 @@
   <div class="flex-none">
     <ul class="menu menu-horizontal px-1">
       <li><NuxtLink to="/posts">Post</NuxtLink></li>
+      <li><NuxtLink to="/ckedit">Ckedit</NuxtLink></li>
       <li>
             <details>
               <summary>Posts</summary>
