@@ -1,37 +1,36 @@
 <template>
   <div :data-theme="theme">
     <div class="navbar bg-base-100">
-  <div class="flex-1">
-    <NuxtLink to="/" class="btn btn-ghost md:text-xl">Blog</NuxtLink>
-  </div>
-  <div class="flex-none">
-    <ul class="menu menu-horizontal px-1">
-      <li><NuxtLink to="/posts">Post</NuxtLink></li>
-      <!-- <li><NuxtLink to="/ckedit">Ckedit</NuxtLink></li> -->
-      <li>
+      <div class="flex-1">
+        <NuxtLink to="/" class="btn btn-ghost md:text-xl">Blog</NuxtLink>
+      </div>
+      <div class="flex-none">
+        <ul class="menu menu-horizontal px-1">
+          <li><NuxtLink to="/posts">Post</NuxtLink></li>
+          <!-- <li><NuxtLink to="/ckedit">Ckedit</NuxtLink></li> -->
+          <!-- <li>
             <details>
               <summary>Posts</summary>
               <ul class="p-2 bg-base-100">
                 <li v-for="post in posts" :key="post.id">
-                  <NuxtLink :to="`/posts/${post.id}`">{{ post.title }}</NuxtLink>
+                  <NuxtLink :to="`/posts/${post.id}`">{{
+                    post.title
+                  }}</NuxtLink>
                 </li>
               </ul>
             </details>
-          </li>
-    </ul>
-  </div>
-  <div class="navba-end">
-        <select
-          v-model="theme"
-          class="select select-primary md:w-auto"
-        >
+          </li> -->
+        </ul>
+      </div>
+      <div class="navba-end">
+        <select v-model="theme" class="select select-primary md:w-auto">
           <option disabled selected>Select Theme</option>
           <option v-for="theme in themes" :value="theme" :key="theme">
             <span class="uppercase">{{ theme }}</span>
           </option>
         </select>
       </div>
-</div>
+    </div>
     <slot />
     <footer class="footer footer-center p-10 bg-base-50">
       <div>
