@@ -4,24 +4,34 @@
   <button class="join-item btn btn-sm btn-active">2</button>
   <button class="join-item btn btn-sm">3</button>
   <button class="join-item btn btn-sm">4</button>
-  <pre>{{ jsonData  }}</pre>
+  <!-- <pre>{{ jsonData  }}</pre> -->
 </div>
 </template>
 
 <script>
 
-const pagination = {
-  myJsonData: {
-    type: Object,
-    required: true
-  }
-}
+// const props = {
+//   myJsonData: {
+//     type: Object,
+//     required: true
+//   }
+// }
 
 export default {
-  
+  props: {
+    myJsonData: {
+      type: Object,
+      required: true,
+    },
+  },
+
   mounted() {
     // mounted 時，先取得一次資料
-    console.log('pagination:',myJsonData)
+    console.log('pagination:',this.myJsonData)
+    // console.log('page:',this.myJsonData.meta.pagination.page)
+    // console.log('pagination:',this.myJsonData)
+    // console.log('pagination:',this.myJsonData)
+    // console.log('pagination:',this.myJsonData)
    
   },
 }
