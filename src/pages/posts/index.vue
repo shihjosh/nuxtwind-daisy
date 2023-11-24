@@ -65,7 +65,7 @@ export default {
   methods: {
     async checkPosts() {
       const config = useRuntimeConfig();
-      const postData = await $fetch(`${config.public.apiBase}reviews?pagination[page]=${this.pagination.page}&pagination[pageSize]=${this.pagination.pageSize}`);
+      const postData = await $fetch(`${config.public.apiBase}reviews?pagination[page]=${this.pagination.page}&pagination[pageSize]=${this.pagination.pageSize}&sort=id:desc`);
       this.reviews = postData.data;
       this.pagination = postData.meta.pagination;
       console.log('this.meta:', this.pagination);
@@ -74,7 +74,7 @@ export default {
     async goToPage(pageNumber) {
       const config = useRuntimeConfig();
       this.pagination.page = pageNumber;
-      const postData = await $fetch(`${config.public.apiBase}reviews?pagination[page]=${pageNumber}&pagination[pageSize]=${this.pagination.pageSize}`);
+      const postData = await $fetch(`${config.public.apiBase}reviews?pagination[page]=${pageNumber}&pagination[pageSize]=${this.pagination.pageSize}&sort=id:desc`);
       this.reviews = postData.data;
       this.pagination = postData.meta.pagination;
       console.log(`Go to page ${pageNumber}`);

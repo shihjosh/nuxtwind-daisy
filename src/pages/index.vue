@@ -6,14 +6,14 @@
           Josh Where 不做永遠是 0%
         </h1>
         <p data-aos="fade-down" data-aos-delay="300" class="md:text-lg text-zinc-900 mb-6">
-          這是我的部落~施工中~~!
+          簡簡單單的用
         </p>
         <div class="flex justify-center space-x-5">
           <a
             data-aos="fade-down"
             data-aos-delay="600"
             class="btn btn-sm md:btn-md btn-primary"
-            href="https://github.com/"
+            href="https://github.com/shihjosh"
             target="_blank"
           >
             Git Hub 連結
@@ -22,10 +22,10 @@
             data-aos="fade-down"
             data-aos-delay="600"
             class="btn btn-sm md:btn-md btn-primary"
-            href="https://tw.yahoo.com/"
+            href="https://www.google.com.tw/"
             target="_blank"
           >
-            Yahoo~! 奇摩~!
+            Google 搜尋
           </a>
         </div>
       </div>
@@ -40,9 +40,11 @@
         </figure>
         <div class="card-body">
           <h2 class="card-title">{{ post.attributes.title }}</h2>
-          <p>{{ post.attributes.body.substring(0, 100) }}</p>
+          <p>{{ post.attributes.body.substring(0, 50) }}</p>
           <div class="card-actions justify-end">
-            <button class="btn btn-primary">GO!</button>
+            <NuxtLink :to="`/posts/${post.id}`">
+            <button  class="btn btn-primary">GO!</button>
+          </NuxtLink>
           </div>
         </div>
       </div>
@@ -72,7 +74,7 @@ export default {
 
     const config = useRuntimeConfig()
     // console.log("baseurl:",config.public.apiBase)
-    const postData = await $fetch(config.public.apiBase+'reviews')
+    const postData = await $fetch(config.public.apiBase+'reviews?&pagination[limit]=6&sort=id:desc')
     this.reviews = postData.data
   },
   },
